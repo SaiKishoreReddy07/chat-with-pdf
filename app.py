@@ -3,8 +3,11 @@ from sentence_transformers import SentenceTransformer
 import chromadb
 from groq import Groq
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
+
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 
 # ---- STEP 1: Load and extract text from PDF ----
 def load_pdf(path):
@@ -90,7 +93,7 @@ Context:
 Question: {question}
 """
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model=GROQ_MODEL,
         messages=[
             {"role": "user", "content": prompt}
         ]

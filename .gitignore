@@ -1,5 +1,21 @@
 .env
 venv/
+.venv/
+
+# Vector store / data
 my_db/
-__pyache__/
+*.sqlite3
+
+# Python
+__pycache__/
 *.pyc
+*.pyo
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
